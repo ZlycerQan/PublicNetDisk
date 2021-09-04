@@ -1,0 +1,22 @@
+spring:
+  repository:
+    path: C:\Users\Administrator\Desktop\PublicNetDisk\server\files
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: -1
+      max-request-size: -1
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    username:
+    password:
+    url: jdbc:sqlite:public-net-disk-server.sqlite
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      username:
+      password:
+      mode: always
+server:
+  address: localhost
+  port: 8080
