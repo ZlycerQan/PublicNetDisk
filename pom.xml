@@ -10,10 +10,10 @@
     </parent>
     <groupId>org.zlycerqan</groupId>
     <artifactId>PublicNetDisk</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>PublicNetDisk</name>
-    <description>Demo project for Spring Boot</description>
+    <description>PublicNetDisk</description>
     <properties>
         <java.version>11</java.version>
     </properties>
