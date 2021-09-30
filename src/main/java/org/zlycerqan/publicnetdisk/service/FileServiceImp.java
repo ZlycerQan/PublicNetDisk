@@ -9,6 +9,7 @@ import org.zlycerqan.publicnetdisk.model.FileModel;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.io.SequenceInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +28,7 @@ public class FileServiceImp implements FileService {
         UNIX
     }
 
-    SystemType systemType;
+    private final SystemType systemType;
 
     private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 
@@ -54,9 +55,14 @@ public class FileServiceImp implements FileService {
         fileModel.setUploadTime(simpleDateFormat.format(new Date()));
         fileModel.setSize(file.getSize());
         fileMapper.add(fileModel);
+        File dir = new File(repositoryConfiguration.getPath());
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
         try {
             file.transferTo(new File(convertPath(String.valueOf(fileModel.getId()))));
         } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
         return true;

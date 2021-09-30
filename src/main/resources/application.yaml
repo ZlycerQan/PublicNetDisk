@@ -1,6 +1,6 @@
 spring:
   repository:
-    path: C:\Users\Administrator\Desktop\PublicNetDisk\server\files
+    path: /usr/share/public-net-disk-files
   servlet:
     multipart:
       enabled: true
